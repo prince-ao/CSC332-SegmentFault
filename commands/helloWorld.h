@@ -1,9 +1,9 @@
 #pragma once
 
-#ifndef DUMMY_H
-#define DUMMY_H
+#ifndef HELLOWORLD_H
+#define HELLOWORLD_H
 
-#include"../utilities.h"
+#include "../utilities.h"
 
 void helloWorld();
 
