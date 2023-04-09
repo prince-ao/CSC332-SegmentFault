@@ -10,6 +10,9 @@ void append_command(char **commands, char *command, int *index){
 		commands[*index] = command;
 	}else{
 		commands[*index] = command;
+        /*
+         * SEGFAULT - EXC_BAD_ACCESS
+         */
 		(*index)++;
 	}
 }
