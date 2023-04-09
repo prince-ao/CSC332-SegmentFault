@@ -52,7 +52,6 @@ int main(void){
 			default:
 				write(STDERR_FILENO, cmdnf, strlen(cmdnf));
 		}
-		free(user_input);
 	}
 	return 0;
 }
