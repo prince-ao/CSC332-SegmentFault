@@ -2,7 +2,6 @@
 #include <unistd.h>
 
 void append_command(char **commands, char *command, int *index){
-	printf("the current command index is %d\n", *index);
 	if((*index) == MAX_COMMANDS){
 		free(commands[0]);
 		for(int i = 1; i < MAX_COMMANDS; i++){
