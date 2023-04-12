@@ -20,6 +20,6 @@ There exists an example command called hello, use that as an example.
 To add a command to stash you must follow the steps below:
 	1. Write the command in commands/ as <command_name>.c and <command_name>.h
 	2. Go to commands.h and include <command_name>.h
-	3. Go to utilities.c and add your function to generateIndex(char *) return the next number, n.
-	4. Go to main.c and add a case statement for n that calls the function you created in <command_name>.c
+	3. Go to main.c, increment `commands.command_size` in line #26 and add your command as commands.commands[n] = "..." under line #28;
+	4. Still in main.c, add a case statement for n that calls the function you created in <command_name>.c
 	5. Test all the commands before pushing.
