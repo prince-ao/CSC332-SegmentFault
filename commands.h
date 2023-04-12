@@ -5,4 +5,9 @@
 
 #include "commands/helloWorld.h"
 
+typedef struct command_vec {
+    char** commands;
+    int command_size;
+} command_vec;
+
 #endif
