@@ -1,4 +1,5 @@
 #include"utilities.h"
+#include "commands.h"
 #include <unistd.h>
 
 void append_command(char **commands, char *command, int *index){
@@ -14,12 +15,13 @@ void append_command(char **commands, char *command, int *index){
 	}
 }
 
-int generateIndex(char *user_input){
-	if(!strcmp(user_input, "hello")) return 0; // example command
-	/*
-	 * else if(strcmp(user_input, ...)) return n
-	 */
-	else return -1;
+int generateIndex(char *user_input, command_vec* commands){
+	for(int i = 0; i < commands->command_size; i++){
+		if(!strcmp(user_input, commands->commands[i])){
+			return i;
+		}
+	}
+	return -1;
 }
 
 void throwError(char *err){
