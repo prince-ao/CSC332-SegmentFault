@@ -4,6 +4,8 @@
 #define COMMANDS_H
 
 #include "commands/helloWorld.h"
+#include "commands/list.h"
+#include "commands/kill.h"
 
 typedef struct command_vec {
     char** commands;
