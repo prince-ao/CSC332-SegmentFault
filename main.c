@@ -1,16 +1,47 @@
 #include"utilities.h"
-#include"commands.h"
+
+char* getPrompt() {
+	char* host = (char*)malloc(126 * sizeof(char)); // :)
+	char* username = getlogin();
+	if(gethostname(host, 126) < 0){
+		host[0] = '\0';
+	}
+	time_t current_time;
+	struct tm * time_info;
+	char timeString[9];
+
+	time(&current_time);
+	time_info = localtime(&current_time);
+
+	strftime(timeString, 9, "%H:%M:%S", time_info);
+
+
+	char* res = (char*)malloc((strlen(host) + strlen(username) + strlen(timeString) + 6) * sizeof(char));
+	snprintf(res, (strlen(host) + strlen(username) + strlen(timeString) + 7), "%s@%s %s ~> ", username, host, timeString);
+	return res;
+}
 
 int main(void){
+	command_vec commands;
+	commands.command_size = 1; // update this.
+	commands.commands = (char**)malloc(commands.command_size * sizeof(char*));
+	commands.commands[0] = "hello";
+	/*
+	commands.commands[1] = ...;
+	.
+	.
+	.
+	*/
 	char **prev_commands = (char **)malloc(MAX_COMMANDS * sizeof(char*));
 	int prev_commands_index;
 	char *user_input;
 	char temp_buffer;
 	int buffer_size;
-	char *prompt = "> ";
+	char *prompt;
 	char *cmdnf = "Command Not Found\n";
 
 	while(1){
+		prompt = getPrompt();
 		write(STDOUT_FILENO, prompt, strlen(prompt));
 		int buffer_counter = 0;
 		int current_size = 5;
@@ -33,10 +64,13 @@ int main(void){
 		if(buffer_size < 0){
 			throwError("Error reading");
 		}
+		if(strlen(user_input) == 0){
+			continue;
+		}
 
 		append_command(prev_commands, user_input, &prev_commands_index);
 
-		int command_index = generateIndex(user_input);
+		int command_index = generateIndex(user_input, &commands);
 		switch(command_index){
 			case 0:
 				helloWorld();
