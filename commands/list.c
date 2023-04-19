@@ -13,7 +13,7 @@
 void list() {
     system("clear");
 
-    int seed = creat("tree.txt", O_RDWR); //opens or creates tree.txt for writing or overwriting.
+    int seed = creat("tree.txt", S_IRWXU); //opens or creates tree.txt for writing or overwriting.
 
     int pid_ls = fork();
 
@@ -32,7 +32,6 @@ void list() {
         close(seed);
         wait(NULL);
         FILE *file = fopen("tree.txt","r");
-        system("chmod 701 tree.txt"); //ensures the user has the correct permissions to read the file.
         if (file == NULL) {
             printf("file tree.txt not found. abort...\n");
             exit(0);
