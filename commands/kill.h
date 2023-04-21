@@ -3,8 +3,8 @@
 #ifndef KILL_H
 #define KILL_H
 
-#include "../utilities.h"
+#include "../includes.h"
 
-void kill();
+void my_kill();
 
 #endif
