@@ -1,5 +1,5 @@
 #include "kill.h"
 
-void kill() {
+void my_kill() {
     exit(0);
 }
