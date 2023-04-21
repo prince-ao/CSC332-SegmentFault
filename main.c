@@ -16,21 +16,22 @@ char* getPrompt() {
 	strftime(timeString, 9, "%H:%M:%S", time_info);
 
 
-	char* res = (char*)malloc((strlen(host) + strlen(username) + strlen(timeString) + 6) * sizeof(char));
+	char* res = (char*)malloc((strlen(host) + strlen(username) + strlen(timeString) + 10) * sizeof(char));
 	snprintf(res, (strlen(host) + strlen(username) + strlen(timeString) + 7), "%s@%s %s ~> ", username, host, timeString);
 	return res;
 }
 
 int main(void){
 	command_vec commands;
-	commands.command_size = 1; // update this.
+	commands.command_size = 3; // update this with each command.
 	commands.commands = (char**)malloc(commands.command_size * sizeof(char*));
 	commands.commands[0] = "hello";
+    commands.commands[1] = "list"; //change to 3 later.
+    commands.commands[2] = "kill"; //change to 5 when all commands are here.
 	/*
-	commands.commands[1] = ...;
-	.
-	.
-	.
+	commands.commands[2] = ...;
+    commands.commands[3] = ...;
+    commands.commands[4] = ...;
 	*/
 	char **prev_commands = (char **)malloc(MAX_COMMANDS * sizeof(char*));
 	int prev_commands_index;
@@ -75,6 +76,12 @@ int main(void){
 			case 0:
 				helloWorld();
 				break;
+            case 1: //change to 3 when the two prior commands are initialized
+                list();
+                break;
+            case 2: //change to 5 when all the commands are initialized
+                my_kill();
+                break;
 			/*
 			 * case 1:
 			 *	command();

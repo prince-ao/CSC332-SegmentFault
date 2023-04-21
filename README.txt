@@ -1,6 +1,6 @@
 Stash
 ---
-stash is a fast, modern shell written in C.
+stash is a fast, post-modern shell written in C
 
 Requirements
 ---
