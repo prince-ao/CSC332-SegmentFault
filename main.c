@@ -80,12 +80,12 @@ int main(void){
 			case 1:
 				tree();
 				break;
-            case 2: //change to 3 when the two prior commands are initialized
-                list();
-                break;
-            case 2: //change to 5 when all the commands are initialized
-                my_kill();
-                break;
+      case 2: //change to 3 when the two prior commands are initialized
+        list();
+        break;
+      case 3: //change to 5 when all the commands are initialized
+         my_kill();
+         break;
 			/*
 			 * case 1:
 			 *	command();
