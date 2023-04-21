@@ -10,5 +10,6 @@
 #include<stdio.h>
 #include<sys/wait.h>
 #include<fcntl.h>
+#include <sys/stat.h>
 
 #endif
