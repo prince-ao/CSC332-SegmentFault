@@ -29,6 +29,7 @@ int main(void){
 	commands.commands[1] = "tree";
     commands.commands[2] = "list"; //change to 3 later.
     commands.commands[3] = "kill"; //change to 5 when all commands are here.
+	commands.commands[4] = "path";
 	/*
 	commands.commands[2] = ...;
     commands.commands[3] = ...;
