@@ -23,7 +23,7 @@ char* getPrompt() {
 
 int main(void){
 	command_vec commands;
-	commands.command_size = 4; // update this with each command.
+	commands.command_size = 5; // update this with each command.
 	commands.commands = (char**)malloc(commands.command_size * sizeof(char*));
 	commands.commands[0] = "hello";
 	commands.commands[1] = "tree";
@@ -87,6 +87,9 @@ int main(void){
       case 3: //change to 5 when all the commands are initialized
          my_kill();
          break;
+			case 4:
+				 path();
+				 break;
 			/*
 			 * case 1:
 			 *	command();
