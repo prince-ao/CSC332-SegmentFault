@@ -2,3 +2,5 @@ main
 CMakeLists.txt
 .vscode
 tree.txt
+DIR0
+path.txt

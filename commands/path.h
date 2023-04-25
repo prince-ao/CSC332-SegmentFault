@@ -1,10 +1,10 @@
 #pragma once
-
-#ifndef KILL_H
-#define KILL_H
+#ifndef PATH_H
+#define PATH_H
 
 #include "../includes.h"
 
-void my_kill();
+void path();
 
 #endif
+
