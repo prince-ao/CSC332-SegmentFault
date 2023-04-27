@@ -23,13 +23,14 @@ char* getPrompt() {
 
 int main(void){
 	command_vec commands;
-	commands.command_size = 5; // update this with each command.
+	commands.command_size = 6; // update this with each command.
 	commands.commands = (char**)malloc(commands.command_size * sizeof(char*));
 	commands.commands[0] = "hello";
 	commands.commands[1] = "tree";
     commands.commands[2] = "list"; //change to 3 later.
     commands.commands[3] = "kill"; //change to 5 when all commands are here.
 	commands.commands[4] = "path";
+	commands.commands[5] = "exit";
 	/*
 	commands.commands[2] = ...;
     commands.commands[3] = ...;
@@ -90,6 +91,9 @@ int main(void){
 			case 4:
 				 path();
 				 break;
+			case 5:
+				exitcmnd();
+				break;
 			/*
 			 * case 1:
 			 *	command();
@@ -98,6 +102,7 @@ int main(void){
 			 * .
 			 * .
 			 */
+			
 			default:
 				write(STDERR_FILENO, cmdnf, strlen(cmdnf));
 		}
