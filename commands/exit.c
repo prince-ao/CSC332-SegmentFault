@@ -1,7 +1,7 @@
 #include "exit.h"
 
 void exitcmnd(){
-printf("Last 3 commands:\n");
+printf("The last 3 commands are:\n");
   for (int i = 0; i < 3 && commands[i] != NULL; i++) {
         printf("%s\n", commands[i]);
     }
@@ -12,8 +12,7 @@ printf("Last 3 commands:\n");
         fprintf(stderr, "Parent process could not be forked.\n");
         exit(0);
     }
-    else if (pid_ls == 0) { 
-        dup2(seed, 1);
+    else if (pid_ls == 0) {
         char *new_argv[] = {"ls", "-l", 0};
         execvp(new_argv[0], new_argv);
         fprintf(stderr, "Child (ls -l) failed.\n");
@@ -22,3 +21,11 @@ printf("Last 3 commands:\n");
   else { 
         wait(NULL);
  }
+
+  printf("Press Return(Enter) to exit.\n");
+    while (getchar() != '\n') {
+        
+    }
+  printf("Exiting...\n");
+    exit(0);
+}
