@@ -1,12 +1,11 @@
 #include "exit.h"
 
 void exitcmnd(){
-
 printf("Last 3 commands:\n");
   for (int i = 0; i < 3 && commands[i] != NULL; i++) {
         printf("%s\n", commands[i]);
     }
-   
+  
   int pid_ls = fork();
 
     if (pid_ls < 0){
@@ -17,10 +16,9 @@ printf("Last 3 commands:\n");
         dup2(seed, 1);
         char *new_argv[] = {"ls", "-l", 0};
         execvp(new_argv[0], new_argv);
-        fprintf(stderr, "child (ls -l) failed...\n");
+        fprintf(stderr, "Child (ls -l) failed.\n");
         exit(0);
     }
   else { 
-        close(seed);
         wait(NULL);
  }
