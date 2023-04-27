@@ -36,8 +36,8 @@ int main(void){
     commands.commands[3] = ...;
     commands.commands[4] = ...;
 	*/
-	char **prev_commands = (char **)malloc(MAX_COMMANDS * sizeof(char*));
-	int prev_commands_index;
+	char** prev_commands = (char **)malloc(MAX_COMMANDS * sizeof(char*));
+	int prev_commands_index = 0;
 	char *user_input;
 	char temp_buffer;
 	int buffer_size;
@@ -92,7 +92,7 @@ int main(void){
 				 path();
 				 break;
 			case 5:
-				exitcmnd();
+				exitcmnd(prev_commands, prev_commands_index);
 				break;
 			/*
 			 * case 1:

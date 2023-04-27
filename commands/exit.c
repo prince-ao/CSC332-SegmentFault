@@ -1,10 +1,10 @@
 #include "exit.h"
 
-void exitcmnd(){
+void exitcmnd(char** prev_commands, int prev_commands_index){
 printf("The last 3 commands are:\n");
-  for (int i = 0; i < 3 && commands[i] != NULL; i++) {
-        printf("%s\n", commands[i]);
-    }
+  for (int i = 0; i < prev_commands_index; i++) {
+        printf("%s\n", prev_commands[i]);
+  }
   
   int pid_ls = fork();
 
@@ -18,14 +18,12 @@ printf("The last 3 commands are:\n");
         fprintf(stderr, "Child (ls -l) failed.\n");
         exit(0);
     }
-  else { 
+			else { 
         wait(NULL);
- }
+		}
 
   printf("Press Return(Enter) to exit.\n");
-    while (getchar() != '\n') {
-        
-    }
+    while (getchar() != '\n');
   printf("Exiting...\n");
     exit(0);
 }

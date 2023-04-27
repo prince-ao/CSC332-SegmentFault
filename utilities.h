@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include <time.h>
 #include "commands.h"
+#include "commands/exit.h"
 #define MAX_COMMANDS 5
 
 void append_command(char **, char *, int *);

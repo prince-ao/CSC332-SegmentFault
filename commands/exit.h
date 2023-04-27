@@ -5,6 +5,7 @@
 
 #include "../includes.h"
 
-void exitcmnd();
+
+void exitcmnd(char**, int);
 
 #endif
