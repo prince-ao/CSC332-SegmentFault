@@ -8,6 +8,7 @@
 #include "commands/list.h"
 #include "commands/kill.h"
 #include "commands/path.h"
+#include "commands/exit.h"
 
 typedef struct command_vec {
     char** commands;
